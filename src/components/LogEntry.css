@@ -1,0 +1,76 @@
+/* src/components/LogEntry.css */
+
+.log-entry {
+  background-color: var(--background-tertiary);
+  border-left: 4px solid var(--border-color);
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.log-entry:hover {
+  background-color: #40444b;
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.log-method {
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: white;
+  min-width: 45px;
+  text-align: center;
+}
+
+/* Method Colors */
+.method-get { background-color: #61affe; } /* Blue */
+.method-post { background-color: #49cc90; } /* Green */
+.method-put { background-color: #fca130; } /* Orange */
+.method-delete { background-color: #f93e3e; } /* Red */
+.method-patch { background-color: #9062f8; } /* Purple */
+.method-options, .method-head { background-color: #5c626b; } /* Gray */
+
+.log-path {
+  color: var(--text-primary);
+  flex-grow: 1;
+  word-break: break-all;
+}
+
+.log-status {
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Status Colors */
+.status-success { color: var(--accent-green); border: 1px solid var(--accent-green);}
+.status-warn { color: var(--accent-orange); border: 1px solid var(--accent-orange);}
+.status-error { color: var(--accent-red); border: 1px solid var(--accent-red);}
+.status-default { color: var(--text-secondary); border: 1px solid var(--text-secondary);}
+
+.log-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.log-message {
+  font-size: 0.85rem;
+  color: #ddd;
+  padding-top: 5px;
+  border-top: 1px dashed var(--border-color);
+  margin-top: 5px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
