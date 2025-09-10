@@ -1,0 +1,422 @@
+/* src/App.css */
+
+/* --- Universal Settings & Variables --- */
+:root {
+  --background-primary: #1e1f22;
+  --background-secondary: #2c2f33;
+  --background-tertiary: #36393f;
+  --text-primary: #e6e6e6;
+  --text-secondary: #b9bbbe;
+  --border-color: #4f545c;
+  --accent-green: #42b883;
+  --accent-blue: #646cff;
+  --accent-red: #f44336;
+  --accent-orange: #ff9800;
+}
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+/* --- Main Layout --- */
+.app-container header {
+  background-color: var(--background-secondary);
+  padding: 1rem 2rem;
+  border-bottom: 2px solid var(--border-color);
+  text-align: center;
+}
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  padding: 2rem;
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.card {
+  background-color: var(--background-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.card h2 {
+  margin-top: 0;
+}
+
+/* --- KPI Grid --- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.kpi-card {
+  background-color: var(--background-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--border-color);
+}
+.kpi-icon {
+  font-size: 2.5rem;
+  color: var(--accent-green);
+}
+.kpi-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.kpi-title {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* --- Charts Grid --- */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.5rem;
+}
+.chart-container {
+  height: 350px;
+}
+
+/* --- Log Stream & Search Table --- */
+.log-list {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+.table-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* --- NEW: Search Results Table Styles --- */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.results-table th,
+.results-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+.results-table th {
+  background-color: var(--background-tertiary);
+  font-weight: bold;
+  color: var(--text-primary);
+}
+.results-table tbody tr {
+  transition: background-color 0.2s ease-in-out;
+}
+.results-table tbody tr:hover {
+  background-color: var(--background-tertiary);
+}
+.results-table .log-path,
+.results-table .log-message {
+  word-break: break-all;
+}
+
+/* --- Right Pane & Forms --- */
+.right-pane {
+  background-color: var(--background-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+  border: 1px solid var(--border-color);
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+.form-group select,
+.date-picker-input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+.search-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--accent-green);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* --- Misc & Responsive --- */
+.status-message {
+  text-align: center;
+  color: #888;
+  padding: 2rem;
+}
+.status-message.error {
+  color: var(--accent-red);
+}
+@media (max-width: 1400px) {
+  .charts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .charts-grid .chart-container:first-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 1024px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  .right-pane {
+    position: static;
+    order: -1;
+  }
+  .kpi-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .main-layout {
+    padding: 1rem;
+  }
+  .kpi-grid,
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  .results-table th,
+  .results-table td {
+    padding: 8px;
+  }
+}
+/* src/App.css */
+
+/* --- Universal Settings & Variables --- */
+:root {
+  --background-primary: #1e1f22;
+  --background-secondary: #2c2f33;
+  --background-tertiary: #36393f;
+  --text-primary: #e6e6e6;
+  --text-secondary: #b9bbbe;
+  --border-color: #4f545c;
+  --accent-green: #42b883;
+  --accent-blue: #646cff;
+  --accent-red: #f44336;
+  --accent-orange: #ff9800;
+}
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+/* --- Main Layout --- */
+.app-container header {
+  background-color: var(--background-secondary);
+  padding: 1rem 2rem;
+  border-bottom: 2px solid var(--border-color);
+  text-align: center;
+}
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  padding: 2rem;
+}
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.card {
+  background-color: var(--background-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.card h2 {
+  margin-top: 0;
+}
+
+/* --- KPI Grid --- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.kpi-card {
+  background-color: var(--background-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--border-color);
+}
+.kpi-icon {
+  font-size: 2.5rem;
+  color: var(--accent-green);
+}
+.kpi-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.kpi-title {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* --- Charts Grid --- */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.5rem;
+}
+.chart-container {
+  height: 350px;
+}
+
+/* --- Log Stream & Search Table --- */
+.log-list {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+.table-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* --- NEW: Search Results Table Styles --- */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.results-table th,
+.results-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+.results-table th {
+  background-color: var(--background-tertiary);
+  font-weight: bold;
+  color: var(--text-primary);
+}
+.results-table tbody tr {
+  transition: background-color 0.2s ease-in-out;
+}
+.results-table tbody tr:hover {
+  background-color: var(--background-tertiary);
+}
+.results-table .log-path,
+.results-table .log-message {
+  word-break: break-all;
+}
+
+/* --- Right Pane & Forms --- */
+.right-pane {
+  background-color: var(--background-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+  border: 1px solid var(--border-color);
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+.form-group select,
+.date-picker-input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+.search-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--accent-green);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* --- Misc & Responsive --- */
+.status-message {
+  text-align: center;
+  color: #888;
+  padding: 2rem;
+}
+.status-message.error {
+  color: var(--accent-red);
+}
+@media (max-width: 1400px) {
+  .charts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .charts-grid .chart-container:first-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 1024px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  .right-pane {
+    position: static;
+    order: -1;
+  }
+  .kpi-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .main-layout {
+    padding: 1rem;
+  }
+  .kpi-grid,
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  .results-table th,
+  .results-table td {
+    padding: 8px;
+  }
+}
